@@ -1,0 +1,33 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #121212;
+    color: #fff;
+
+    h1 {
+        font-size: 5rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .home-link {
+        background-color: #1DB954;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken(#1DB954, 10%);
+        }
+    }
+}

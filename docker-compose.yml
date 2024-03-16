@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  mongodb:
+    image: bitnami/mongodb:4.4
+    container_name: mongodb
+    environment: # set required env variables to access mongo
+      - MONGODB_ROOT_PASSWORD=password
+      - MONGODB_DATABASE=spotify
+      - MONGODB_USERNAME=mongoadmin
+      - MONGODB_PASSWORD=password
+    volumes:
+      - ./backend/tmp/db:/bitnami/mongodb
+    ports:
+      - "27017:27017"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    depends_on:
+      - mongodb
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/usr/src/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend:/usr/src/app
+    depends_on:
+      - backend

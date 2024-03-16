@@ -1,0 +1,12 @@
+{
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2,
+	
+    "editor.detectIndentation": false,
+    
+    "prettier.tabWidth": 4,
+    "prettier.useTabs": true,
+
+		// disable js file is a commonjs module
+		"javascript.suggestionActions.enabled": false
+}
